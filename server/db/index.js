@@ -11,6 +11,13 @@ var connection = mysql.createConnection({
   database: 'chat'
 });
 
-connection.connect();
+connection.connect((err) => {
+  if (err) {
+    console.log('err' + err.stack);
+    return;
+  }
+
+  console.log('success');
+});
 
 module.exports = connection;
